@@ -1,0 +1,38 @@
+name: Publish Python Module to TestPyPI and PyPI
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  deploy:
+    environment: publish package
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+
+    - name: Build and publish to TestPyPI
+      env:
+        TWINE_TOKEN: ${{ secrets.TESTPYPI_API_TOKEN }}
+      run: |
+        python setup.py sdist bdist_wheel
+        twine upload --repository-url https://test.pypi.org/legacy/ --username __token__ --password $TWINE_TOKEN dist/*
+
+    - name: Publish to PyPI (if TestPyPI was successful)
+      if: ${{ success() }}
+      env:
+        TWINE_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        twine upload dist/* --username __token__ --password $TWINE_TOKEN

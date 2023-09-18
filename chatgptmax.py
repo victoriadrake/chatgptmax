@@ -65,8 +65,7 @@ def clean_stopwords(text: str) -> str:
     clean_tokens = [t for t in tokens if not t in stopwords]
     return " ".join(clean_tokens)
 
-
-def readData(file):
+def read_data(file):
     """
     Reads the content of a file and returns it as a string.
 
@@ -93,7 +92,7 @@ def clean_text_from_file(file):
     - str: The cleaned content of the file or an error message if the file could not be read.
     """
     try:
-        text = readData(file)
+        text = read_data(file)
     except:
         return "Error: could not read your file."
     return clean_stopwords(text)
