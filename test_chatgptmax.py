@@ -1,5 +1,5 @@
 import pytest
-from chatgptmax import clean, clean_stopwords, readData, clean_text_from_file, send
+from chatgptmax import clean, clean_stopwords, read_data, clean_text_from_file, send
 
 # Test for the clean function
 def test_clean():
@@ -15,11 +15,11 @@ def test_clean_stopwords():
     assert cleaned_text == "This test remove stopwords from text."
 
 
-# Test for the readData function
-def test_readData(tmp_path):
+# Test for the read_data function
+def test_read_data(tmp_path):
     file = tmp_path / "test.txt"
     file.write_text("This is a test file.")
-    assert readData(file) == "This is a test file."
+    assert read_data(file) == "This is a test file."
 
 
 # Test for the clean_text_from_file function
