@@ -54,4 +54,5 @@ jobs:
 
     - name: Use the Python package
       run: |
+        pip show chatgptmax
         python -c "import chatgptmax"
