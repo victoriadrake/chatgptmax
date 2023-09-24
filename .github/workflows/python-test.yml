@@ -7,6 +7,7 @@ on:
     branches: ["master"]
   pull_request:
     branches: ["master"]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -34,3 +35,23 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           pytest
+  test-package:
+    environment: test Python versions
+
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.11
+
+    - name: Install package from PyPI
+      run: |
+        pip install chatgptmax
+
+    - name: Use the Python package
+      run: |
+        python -c "import chatgptmax"
