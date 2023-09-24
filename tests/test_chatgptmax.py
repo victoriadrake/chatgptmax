@@ -1,5 +1,7 @@
+import sys
+sys.path.append("./")
 import pytest
-from chatgptmax import clean, clean_stopwords, read_data, clean_text_from_file, send
+from src.chatgptmax import clean, clean_stopwords, read_data, clean_text_from_file, send
 
 # Test for the clean function
 def test_clean():
