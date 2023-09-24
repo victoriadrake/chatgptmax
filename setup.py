@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="chatgptmax",
-    version="1.0",
+    version="1.0.1",
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=find_packages(),
@@ -19,8 +19,7 @@ setup(
     ],
     install_requires=[
         "openai",
-        "tiktoken",
-        "re"
+        "tiktoken"
     ],
     author="Victoria Drake",
     author_email="hello@victoria.dev",
