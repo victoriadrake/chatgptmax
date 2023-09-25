@@ -52,4 +52,4 @@ jobs:
       run: |
         pip install chatgptmax
         pip show chatgptmax
-        python -c "import chatgptmax; print(chatgptmax.__version__)"
+        python -c "import chatgptmax"

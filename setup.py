@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="chatgptmax",
-    version="1.0.1",
+    version="1.0.2",
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=find_packages(),
