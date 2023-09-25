@@ -48,11 +48,8 @@ jobs:
       with:
         python-version: 3.11
 
-    - name: Install package from PyPI
+    - name: Install package from PyPI and test
       run: |
         pip install chatgptmax
-
-    - name: Use the Python package
-      run: |
         pip show chatgptmax
-        python -c "import chatgptmax"
+        python -c "import chatgptmax; print(chatgptmax.__version__)"

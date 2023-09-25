@@ -33,6 +33,6 @@ jobs:
     - name: Publish to PyPI (if TestPyPI was successful)
       if: ${{ success() }}
       env:
-        TWINE_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
       run: |
-        twine upload dist/* --username __token__ --password $TWINE_TOKEN
+        twine upload dist/* --username __token__ --password $PYPI_TOKEN
