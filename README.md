@@ -6,6 +6,8 @@
 
 A Python package for sending long input text to OpenAI's GPT models using message chunking.
 
+Read the [blog post](https://victoria.dev/blog/how-to-send-long-text-input-to-chatgpt-using-the-openai-api/) that inspired this project.
+
 ## Installation
 
 You can install `chatgptmax` using pip:
