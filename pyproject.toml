@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chatgptmax"
+version = "1.0.5"
+authors = [
+  { name="Victoria Drake", email="hello@victoria.dev" },
+]
+description = "Take large input or read a file and send it in chunks to ChatGPT."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/victoriadrake/chatgptmax/"
+"Bug Tracker" = "https://github.com/victoriadrake/chatgptmax/issues"
