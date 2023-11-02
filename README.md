@@ -20,7 +20,7 @@ pip install chatgptmax
 
 Here's are basic usage examples of the `chatgptmax` module. This assumes you have an [OpenAI API key set up](/docs/set_up_openai_api_key.md) as an environment variable, `OPENAI_API_KEY`.
 
-You can also try out `chatgptmax` using the Jupyter notebook provided here.
+You can also try out `chatgptmax` using [the Jupyter notebook provided here.](https://github.com/victoriadrake/chatgptmax-jupyter)
 
 ### Clean text with preprocessing
 
