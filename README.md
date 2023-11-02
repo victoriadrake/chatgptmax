@@ -31,13 +31,13 @@ This is a sample text. It contains some stop words that should be removed. We wi
 You can use the `clean_text_from_file` function to read and clean the text from this file:
 
 ```python
-from chatgptmax import clean_text_from_file
+from chatgptmax import clean
 
 # Specify the path to your file
 file_path = "sample.txt"
 
 # Clean and process the text from the file
-cleaned_text = clean_text_from_file(file_path)
+cleaned_text = clean.text_from_file(file_path)
 
 # Print the cleaned text
 print(cleaned_text)

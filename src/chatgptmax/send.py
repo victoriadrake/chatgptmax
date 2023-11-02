@@ -3,100 +3,11 @@
 import os
 import openai
 import tiktoken
-import re
 
 # Set up your OpenAI API key
 # Load your API key from an environment variable or secret management service
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
-
-def clean(text):
-    """
-    Cleans the provided text by removing URLs, email addresses, non-letter characters, and extra whitespace.
-
-    Args:
-    - text (str): The input text to be cleaned.
-
-    Returns:
-    - str: The cleaned text.
-    """
-    # Remove URLs
-    text = re.sub(r"http\S+", "", text)
-
-    # Remove email addresses
-    text = re.sub(r"\S+@\S+", "", text)
-
-    # Remove everything that's not a letter (a-z, A-Z)
-    text = re.sub(r"[^a-zA-Z\s]", "", text)
-
-    # Remove whitespace, tabs, and new lines
-    text = "".join(text.split())
-
-    return text
-
-
-def clean_stopwords(text: str) -> str:
-    """
-    Removes common stopwords from the provided text.
-
-    Args:
-    - text (str): The input text from which stopwords should be removed.
-
-    Returns:
-    - str: The text with stopwords removed.
-    """
-    stopwords = [
-        "a",
-        "an",
-        "and",
-        "at",
-        "but",
-        "how",
-        "in",
-        "is",
-        "on",
-        "or",
-        "the",
-        "to",
-        "what",
-        "will",
-    ]
-    tokens = text.split()
-    clean_tokens = [t for t in tokens if not t in stopwords]
-    return " ".join(clean_tokens)
-
-def read_data(file):
-    """
-    Reads the content of a file and returns it as a string.
-
-    Args:
-    - file (str): The path to the file to be read.
-
-    Returns:
-    - str: The content of the file.
-    """
-    # Open the file and read the text
-    with open(file, "r", encoding="UTF-8") as f:
-        text = f.read()
-    return text
-
-
-def clean_text_from_file(file):
-    """
-    Reads the content of a file, cleans it by removing stopwords, and returns the cleaned text.
-
-    Args:
-    - file (str): The path to the file whose content should be cleaned.
-
-    Returns:
-    - str: The cleaned content of the file or an error message if the file could not be read.
-    """
-    try:
-        text = read_data(file)
-    except:
-        return "Error: could not read your file."
-    return clean_stopwords(text)
-
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 def send(
     prompt=None,
