@@ -20,6 +20,8 @@ pip install chatgptmax
 
 Here's are basic usage examples of the `chatgptmax` module. This assumes you have an [OpenAI API key set up](/docs/set_up_openai_api_key.md) as an environment variable, `OPENAI_API_KEY`.
 
+You can also try out `chatgptmax` using the Jupyter notebook provided here.
+
 ### Clean text with preprocessing
 
 Suppose you have a file named `sample.txt` with the following content:
@@ -28,7 +30,7 @@ Suppose you have a file named `sample.txt` with the following content:
 This is a sample text. It contains some stop words that should be removed. We will use the chatgptmax module to clean and process this text.
 ```
 
-You can use the `clean_text_from_file` function to read and clean the text from this file:
+You can use the `clean.text_from_file` method to read and clean the text from this file:
 
 ```python
 from chatgptmax import clean
@@ -46,7 +48,7 @@ print(cleaned_text)
 This code will read the content of `sample.txt`, remove common stopwords, and print the cleaned text:
 
 ```txt
-"This sample text contains stop words removed. We chatgptmax module clean process text."
+This sample text contains stop words removed. We chatgptmax module clean process text.
 ```
 
 ### Send lots of text to ChatGPT
@@ -77,6 +79,8 @@ for response in responses:
 This code will send the cleaned text as text data to ChatGPT along with the prompt. ChatGPT will provide responses based on your prompt and text data.
 
 Please make sure you have your [OpenAI API key properly set up](/docs/set_up_openai_api_key.md) as an environment variable or using a secret management service for this example to work.
+
+For more examples and instructions, read [the documentation](./docs/README.md)
 
 ## Documentation
 

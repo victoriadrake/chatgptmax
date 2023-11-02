@@ -23,35 +23,48 @@ You can install the required dependencies using `pip`:
 pip install -r requirements.txt
 ```
 
+If you plan to contribute, please also install and use `black` to format the files:
+
+```sh
+pip install --upgrade black
+```
+
 ## Usage
 
 To use the `chatgptmax` module, follow these steps:
 
+1. Sign up for ChatGPT and create a secret API key. More information here: https://platform.openai.com/docs/quickstart/step-2-setup-your-api-key
+2. Ensure your key is present in the environment variable `OPENAI_API_KEY`. For instructions, read [Set up your OpenAI API key](./set_up_openai_api_key.md)
+3. Import and use `chatgptmax` as shown in the examples below.
+
 ### Cleaning Text
 
-The `clean` function can be used to clean text by removing URLs, email addresses, non-letter characters, and extra whitespace.
+The `clean.text` method can be used to clean text by removing URLs, email addresses, non-letter characters, and extra whitespace.
 
 ```python
-from chatgptmax import clean
+from chatgptmax.clean import text
 
 # Clean the input text
-cleaned_text = clean("Your input text goes here.")
+just_letters = text("Your input text goes here.")
+
+# Print the cleaned text
+print(just_letters)
 ```
 
 ### Removing Stopwords
 
-The `clean_stopwords` function removes common stopwords from the provided text.
+The `clean.stopwords` method removes common stopwords from the provided text.
 
 ```python
-from chatgptmax import clean_stopwords
+from chatgptmax.clean import stopwords
 
 # Remove stopwords from the input text
-text_without_stopwords = clean_stopwords("Your input text goes here.")
+text_without_stopwords = stopwords("This is a sample text. It contains some stop words that should be removed. We will use the chatgptmax module to clean and process this text.")
 ```
 
 ### Reading Data from Files
 
-The `read_data` function reads the content of a file and returns it as a string.
+The `read_data` method reads the content of a file and returns it as a string.
 
 ```python
 from chatgptmax import read_data
@@ -65,7 +78,7 @@ file_content = read_data(file_path)
 
 ### Sending Text to ChatGPT
 
-The `send` function sends text data to ChatGPT for processing. It can handle large text by splitting it into chunks.
+The `send` method sends text data to ChatGPT for processing. It can handle large text by splitting it into chunks.
 
 ```python
 from chatgptmax import send
