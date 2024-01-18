@@ -10,6 +10,8 @@ make test-upload: ## Build and upload to Test PyPI
 		twine upload --repository-url https://test.pypi.org/legacy/ --username __token__ --password $(TWINE_TOKEN) dist/*
 
 make test-install: ## Install the latest test version
+		@echo "TestPyPI needs a moment..."
+		sleep 10
 		python3 -m pip uninstall chatgptmax -y
 		python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps chatgptmax
 
@@ -18,5 +20,5 @@ make publish: ## Build and publish to PyPI
 		python3 -m build
 		twine upload dist/* --username __token__ --password $(PYPI_TOKEN)
 
-make test: ## Run tests
+make test: test-upload test-install ## Run tests with TestPyPI version
 		pytest
