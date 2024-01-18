@@ -5,13 +5,13 @@ help: ## Show this help
 		@egrep -h '\s##\s' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 clean-dist:
-    @if [ -d "dist" ]; then \
-        echo "Removing 'dist' directory..."; \
-        rm -rf dist; \
-        echo "'dist' directory removed."; \
-    else \
-        echo "'dist' directory does not exist."; \
-    fi
+		@if [ -d "dist" ]; then \
+			echo "Removing 'dist' directory..."; \
+			rm -rf dist; \
+			echo "'dist' directory removed."; \
+		else \
+			echo "'dist' directory does not exist."; \
+		fi
 
 test-upload: ## Build and upload to Test PyPI
 		rm dist/*
