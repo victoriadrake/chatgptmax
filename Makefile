@@ -13,8 +13,7 @@ clean-dist:
 			echo "'dist' directory does not exist."; \
 		fi
 
-test-upload: ## Build and upload to Test PyPI
-		rm dist/*
+test-upload: clean-dist ## Build and upload to Test PyPI
 		python3 -m build
 		twine upload --repository-url https://test.pypi.org/legacy/ --username __token__ --password $(TWINE_TOKEN) dist/*
 
