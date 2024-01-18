@@ -36,5 +36,7 @@ jobs:
           TWINE_TOKEN: ${{ secrets.TESTPYPI_API_TOKEN }}
           PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         run: |
-          make test
-
+          make clean-dist
+          python3 -m build
+          twine upload --repository-url https://test.pypi.org/legacy/ --username __token__ --password $TWINE_TOKEN dist/*
+          make test-install
